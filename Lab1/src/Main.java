@@ -1,8 +1,9 @@
 // Чуносов Денис ИТ-1
 
+import java.util.Arrays;
 import java.util.Scanner;
 
-public double Fraction (double x) {
+public double fraction (double x) {
     return x % 1;
 }
 
@@ -130,66 +131,192 @@ public void rightTriangle (int x) {
     }
 }
 
-void main() {
+public void guessGame() {
     Scanner sc = new Scanner(System.in);
+    int num = (int)(Math.random() * 10);
+    int count = 0;
 
+    IO.print("Угадайте число от 0 до 9: ");
+    int answer = sc.nextInt();
+    count++;
 
-    //IO.print("Введите число для оставления дробной части (1.1): ");
-    //double t11 = sc.nextDouble();
-    //IO.println("Ответ: " + Fraction(t11));
-    //IO.print("Введите число для определения положительности (1.4): ");
-    //int t14 = sc.nextInt();
-    //IO.println("Ответ: " + isPositive(t14));
-    //IO.print("Введите число для определения двузначности (1.5): ");
-    //int t15 = sc.nextInt();
-    //IO.println("Ответ: " + is2Digits(t15));
-    //IO.print("Введите первое число для определения делимости нацело (1.8): ");
-    //int t18_1 = sc.nextInt();
-//    IO.print("Введите второе число для определения делимости нацело (1.8): ");
-//    int t18_2 = sc.nextInt();
-//    IO.println("Ответ: " + isDivisor(t18_1, t18_2));
-//    IO.print("Введите первое число для определения равенства (1.9): ");
-//    int t19_1 = sc.nextInt();
-//    IO.print("Введите второе число для определения равенства (1.9): ");
-//    int t19_2 = sc.nextInt();
-//    IO.print("Введите третье число для определения равенства (1.9): ");
-//    int t19_3 = sc.nextInt();
-//    IO.println("Ответ: " + isEqual(t19_1, t19_2, t19_3));
-//    IO.print("Введите число для определения делимости на 3 либо 5 (2.3): ");
-//    int t23 = sc.nextInt();
-//    IO.println("Ответ: " + is35(t23));
-//    IO.print("Введите первое число для определения максимального (2.5): ");
-//    int t25_1 = sc.nextInt();
-//    IO.print("Введите второе число для определения максимального (2.5): ");
-//    int t25_2 = sc.nextInt();
-//    IO.print("Введите третье число для определения максимального (2.5): ");
-//    int t25_3 = sc.nextInt();
-//    IO.println("Ответ: " + max3(t25_1, t25_2, t25_3));
-//    IO.print("Введите первое число для определения суммы и вхождения в диапазон (2.7): ");
-//    int t27_1 = sc.nextInt();
-//    IO.print("Введите второе число для определения суммы и вхождения в диапазон (2.7): ");
-//    int t27_2 = sc.nextInt();
-//    IO.println("Ответ: " + sum2(t27_1, t27_2));
-//    IO.print("Введите число для вывода возраста (2.8): ");
-//    int t28 = sc.nextInt();
-//    IO.println("Ответ: " + age(t28));
-//    IO.print("Введите день недели для вывода его и последующих (2.10): ");
-//    String t210 = sc.nextLine();
-//    IO.print("Ответ: ");
-//    printDays(t210);
-//    IO.print("Введите число для вывода предыдущих до нуля (3.2): ");
-//    int t32 = sc.nextInt();
-//    IO.print("Ответ: " + reverseListNums(t32));
-//    IO.print("Введите число для возведения в степень (3.4): ");
-//    int t34_1 = sc.nextInt();
-//    IO.print("Введите степень для возведения (3.4): ");
-//    int t34_2 = sc.nextInt();
-//    IO.print("Ответ: " + pow(t34_1, t34_2));
-//    IO.print("Введите число для определения равенства цифр (3.6): ");
-//    int t36 = sc.nextInt();
-//    IO.print("Ответ: " + equalNum(t36));
-    IO.print("Введите число для построения треугольника (3.9): ");
-    int t39 = sc.nextInt();
+    while (answer != num) {
+        if (answer < num) {
+            IO.print("Не угадали, загаданное число больше. Введите число от 0 до 9: ");
+        } else {
+            IO.print("Не угадали, загаданное число меньше. Введите число от 0 до 9: ");
+        }
+        answer = sc.nextInt();
+        count++;
+    }
+
+    IO.println("Вы угадали!");
+    IO.println("Количество попыток: " + count);
+}
+
+public int findFirst (int[] arr, int x) {
+    for (int i = 0; i < arr.length; i++) {
+        if (arr[i] == x) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+public int maxAbs (int[] arr) {
+    int max = arr[0];
+    for (int i = 1; i < arr.length; i++) {
+        if (Math.abs(arr[i]) > Math.abs(max)) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+public void reverse (int[] arr) {
+    for (int i = 0; i < arr.length / 2; i++) {
+        int t = arr[i];
+        arr[i] = arr[arr.length - 1 - i];
+        arr[arr.length - 1 - i] = t;
+    }
+}
+
+public int[] reverseBack (int[] arr) {
+    int[] res = new int[arr.length];
+    for (int i = 0; i < arr.length; i++) {
+        res[i] = arr[arr.length - 1 - i];
+    }
+    return res;
+}
+
+public int[] concat (int[] arr1, int[] arr2) {
+    int[] res = new int[arr1.length + arr2.length];
+    for (int i = 0; i < arr1.length; i++) {
+        res[i] = arr1[i];
+    }
+    for (int i = 0; i < arr2.length; i++) {
+        res[arr1.length + i] = arr2[i];
+    }
+    return res;
+}
+
+void main() {
+    IO.println("=== Блок 1 ===");
+
+    double t11 = 5.25;
+    IO.println("1.1 Дробная часть. x = " + t11);
+    IO.println("Ответ: " + fraction(t11));
+    IO.println();
+
+    int t14 = -5;
+    IO.println("1.4 Положительность. x = " + t14);
+    IO.println("Ответ: " + isPositive(t14));
+    IO.println();
+
+    int t15 = 32;
+    IO.println("1.5 Двузначность. x = " + t15);
+    IO.println("Ответ: " + is2Digits(t15));
+    IO.println();
+
+    int t18a = 3;
+    int t18b = 6;
+    IO.println("1.8 Делимость нацело. a = " + t18a + ", b = " + t18b);
+    IO.println("Ответ: " + isDivisor(t18a, t18b));
+    IO.println();
+
+    int t19a = 3;
+    int t19b = 3;
+    int t19c = 3;
+    IO.println("1.9 Равенство трёх чисел. a = " + t19a + ", b = " + t19b + ", c = " + t19c);
+    IO.println("Ответ: " + isEqual(t19a, t19b, t19c));
+    IO.println();
+
+    IO.println("=== Блок 2 ===");
+
+    int t23 = 15;
+    IO.println("2.3 Делимость на 3 либо 5. x = " + t23);
+    IO.println("Ответ: " + is35(t23));
+    IO.println();
+
+    int t25x = 8;
+    int t25y = -1;
+    int t25z = 4;
+    IO.println("2.5 Максимум из трёх. x = " + t25x + ", y = " + t25y + ", z = " + t25z);
+    IO.println("Ответ: " + max3(t25x, t25y, t25z));
+    IO.println();
+
+    int t27x = 5;
+    int t27y = 7;
+    IO.println("2.7 Сумма двух чисел. x = " + t27x + ", y = " + t27y);
+    IO.println("Ответ: " + sum2(t27x, t27y));
+    IO.println();
+
+    int t28 = 31;
+    IO.println("2.8 Возраст. x = " + t28);
+    IO.println("Ответ: " + age(t28));
+    IO.println();
+
+    String t210 = "пятница";
+    IO.println("2.10 Дни недели. x = " + t210);
+    IO.print("Ответ: ");
+    printDays(t210);
+    IO.println();
+    IO.println();
+
+    IO.println("=== Блок 3 ===");
+
+    int t32 = 5;
+    IO.println("3.2 Числа в обратном порядке. x = " + t32);
+    IO.println("Ответ: " + reverseListNums(t32));
+    IO.println();
+
+    int t34x = 2;
+    int t34y = 5;
+    IO.println("3.4 Возведение в степень. x = " + t34x + ", y = " + t34y);
+    IO.println("Ответ: " + pow(t34x, t34y));
+    IO.println();
+
+    int t36 = 1111;
+    IO.println("3.6 Одинаковые цифры. x = " + t36);
+    IO.println("Ответ: " + equalNum(t36));
+    IO.println();
+
+    int t39 = 4;
+    IO.println("3.9 Правый треугольник. x = " + t39);
     IO.println("Ответ: ");
     rightTriangle(t39);
+    IO.println();
+
+    IO.println("3.10 Угадайка");
+    guessGame();
+    IO.println();
+
+    IO.println("=== Блок 4 ===");
+
+    int[] t41 = {1, 2, 3, 4, 2, 2, 5};
+    int t41x = 2;
+    IO.println("4.1 Первое вхождение. arr = " + Arrays.toString(t41) + ", x = " + t41x);
+    IO.println("Ответ: " + findFirst(t41, t41x));
+    IO.println();
+
+    int[] t43 = {1, -2, -7, 4, 2, 2, 5};
+    IO.println("4.3 Максимум по модулю. arr = " + Arrays.toString(t43));
+    IO.println("Ответ: " + maxAbs(t43));
+    IO.println();
+
+    int[] t46 = {1, 2, 3, 4, 5};
+    IO.println("4.6 Разворот массива. arr = " + Arrays.toString(t46));
+    reverse(t46);
+    IO.println("Ответ: " + Arrays.toString(t46));
+    IO.println();
+
+    int[] t47 = {1, 2, 3, 4, 5};
+    IO.println("4.7 Новый развёрнутый массив. arr = " + Arrays.toString(t47));
+    IO.println("Ответ: " + Arrays.toString(reverseBack(t47)));
+    IO.println();
+
+    int[] t48a = {1, 2, 3};
+    int[] t48b = {7, 8, 9};
+    IO.println("4.8 Склейка массивов. arr1 = " + Arrays.toString(t48a) + ", arr2 = " + Arrays.toString(t48b));
+    IO.println("Ответ: " + Arrays.toString(concat(t48a, t48b)));
 }

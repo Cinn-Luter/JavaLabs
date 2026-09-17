@@ -249,17 +249,17 @@ void main() {
     IO.println("Ответ: " + is35(t23));
     IO.println();
 
-    int t25x = 8;
-    int t25y = -1;
-    int t25z = 4;
-    IO.println("2.5 Максимум из трёх. x = " + t25x + ", y = " + t25y + ", z = " + t25z);
-    IO.println("Ответ: " + max3(t25x, t25y, t25z));
+    int t25a = 8;
+    int t25b = -1;
+    int t25c = 4;
+    IO.println("2.5 Максимум из трёх. x = " + t25a + ", y = " + t25b + ", z = " + t25c);
+    IO.println("Ответ: " + max3(t25a, t25b, t25c));
     IO.println();
 
-    int t27x = 5;
-    int t27y = 7;
-    IO.println("2.7 Сумма двух чисел. x = " + t27x + ", y = " + t27y);
-    IO.println("Ответ: " + sum2(t27x, t27y));
+    int t27a = 5;
+    int t27b = 7;
+    IO.println("2.7 Сумма двух чисел. x = " + t27a + ", y = " + t27b);
+    IO.println("Ответ: " + sum2(t27a, t27b));
     IO.println();
 
     int t28 = 31;
@@ -281,10 +281,10 @@ void main() {
     IO.println("Ответ: " + reverseListNums(t32));
     IO.println();
 
-    int t34x = 2;
-    int t34y = 5;
-    IO.println("3.4 Возведение в степень. x = " + t34x + ", y = " + t34y);
-    IO.println("Ответ: " + pow(t34x, t34y));
+    int t34a = 2;
+    int t34b = 5;
+    IO.println("3.4 Возведение в степень. x = " + t34a + ", y = " + t34b);
+    IO.println("Ответ: " + pow(t34a, t34b));
     IO.println();
 
     int t36 = 1111;
@@ -300,10 +300,10 @@ void main() {
 
     IO.println("=== Блок 4 ===");
 
-    int[] t41 = {1, 2, 3, 4, 2, 2, 5};
-    int t41x = 2;
-    IO.println("4.1 Первое вхождение. arr = " + arrToString(t41) + ", x = " + t41x);
-    IO.println("Ответ: " + findFirst(t41, t41x));
+    int[] t41a = {1, 2, 3, 4, 2, 2, 5};
+    int t41b = 2;
+    IO.println("4.1 Первое вхождение. arr = " + arrToString(t41a) + ", x = " + t41b);
+    IO.println("Ответ: " + findFirst(t41a, t41b));
     IO.println();
 
     int[] t43 = {1, -2, -7, 4, 2, 2, 5};

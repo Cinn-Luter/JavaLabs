@@ -1,6 +1,5 @@
 // Чуносов Денис ИТ-1
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public double fraction (double x) {
@@ -200,6 +199,18 @@ public int[] concat (int[] arr1, int[] arr2) {
     return res;
 }
 
+// вспомогательная функция для вывода массивов
+public String arrToString (int[] arr) {
+    String st = "[";
+    for (int i = 0; i < arr.length; i++) {
+        st += arr[i];
+        if (i < arr.length - 1) {
+            st += ", ";
+        }
+    }
+    return st + "]";
+}
+
 void main() {
     IO.println("=== Блок 1 ===");
 
@@ -287,36 +298,36 @@ void main() {
     rightTriangle(t39);
     IO.println();
 
-    IO.println("3.10 Угадайка");
-    guessGame();
-    IO.println();
-
     IO.println("=== Блок 4 ===");
 
     int[] t41 = {1, 2, 3, 4, 2, 2, 5};
     int t41x = 2;
-    IO.println("4.1 Первое вхождение. arr = " + Arrays.toString(t41) + ", x = " + t41x);
+    IO.println("4.1 Первое вхождение. arr = " + arrToString(t41) + ", x = " + t41x);
     IO.println("Ответ: " + findFirst(t41, t41x));
     IO.println();
 
     int[] t43 = {1, -2, -7, 4, 2, 2, 5};
-    IO.println("4.3 Максимум по модулю. arr = " + Arrays.toString(t43));
+    IO.println("4.3 Максимум по модулю. arr = " + arrToString(t43));
     IO.println("Ответ: " + maxAbs(t43));
     IO.println();
 
     int[] t46 = {1, 2, 3, 4, 5};
-    IO.println("4.6 Разворот массива. arr = " + Arrays.toString(t46));
+    IO.println("4.6 Разворот массива. arr = " + arrToString(t46));
     reverse(t46);
-    IO.println("Ответ: " + Arrays.toString(t46));
+    IO.println("Ответ: " + arrToString(t46));
     IO.println();
 
     int[] t47 = {1, 2, 3, 4, 5};
-    IO.println("4.7 Новый развёрнутый массив. arr = " + Arrays.toString(t47));
-    IO.println("Ответ: " + Arrays.toString(reverseBack(t47)));
+    IO.println("4.7 Новый развёрнутый массив. arr = " + arrToString(t47));
+    IO.println("Ответ: " + arrToString(reverseBack(t47)));
     IO.println();
 
     int[] t48a = {1, 2, 3};
     int[] t48b = {7, 8, 9};
-    IO.println("4.8 Склейка массивов. arr1 = " + Arrays.toString(t48a) + ", arr2 = " + Arrays.toString(t48b));
-    IO.println("Ответ: " + Arrays.toString(concat(t48a, t48b)));
+    IO.println("4.8 Склейка массивов. arr1 = " + arrToString(t48a) + ", arr2 = " + arrToString(t48b));
+    IO.println("Ответ: " + arrToString(concat(t48a, t48b)));
+    IO.println();
+
+    IO.println("3.10 Угадайка");
+    guessGame();
 }

@@ -55,45 +55,31 @@ public String age (int x){
 }
 
 public void printDays(String x) {
-    String[] days = {"понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"};
-    int stInd = -1;
-
     switch (x) {
         case "понедельник":
-            stInd = 0;
-            break;
+            IO.println("понедельник");
         case "вторник":
-            stInd = 1;
-            break;
+            IO.println("вторник");
         case "среда":
-            stInd = 2;
-            break;
+            IO.println("среда");
         case "четверг":
-            stInd = 3;
-            break;
+            IO.println("четверг");
         case "пятница":
-            stInd = 4;
-            break;
+            IO.println("пятница");
         case "суббота":
-            stInd = 5;
-            break;
+            IO.println("суббота");
         case "воскресенье":
-            stInd = 6;
+            IO.println("воскресенье");
             break;
         default:
             IO.println("это не день недели");
-            return;
-    }
-
-    for (int i = stInd; i < days.length; i++) {
-        IO.print(days[i] + " ");
     }
 }
 
 public String reverseListNums (int x){
-    String st = Integer.toString(x) + " ";
+    String st = x + " ";
     for (int i = x-1; i >= 0; i--){
-        st += Integer.toString(i) + " ";
+        st += i + " ";
     }
     return st;
 }
@@ -199,7 +185,7 @@ public int[] concat (int[] arr1, int[] arr2) {
     return res;
 }
 
-// вспомогательная функция для вывода массивов
+// функция для вывода массивов
 public String arrToString (int[] arr) {
     String st = "[";
     for (int i = 0; i < arr.length; i++) {
@@ -267,11 +253,10 @@ void main() {
     IO.println("Ответ: " + age(t28));
     IO.println();
 
-    String t210 = "пятница";
+    String t210 = "понедельник";
     IO.println("2.10 Дни недели. x = " + t210);
-    IO.print("Ответ: ");
+    IO.println("Ответ: ");
     printDays(t210);
-    IO.println();
     IO.println();
 
     IO.println("=== Блок 3 ===");
@@ -300,7 +285,7 @@ void main() {
 
     IO.println("=== Блок 4 ===");
 
-    int[] t41a = {1, 2, 3, 4, 2, 2, 5};
+    int[] t41a = {1, 1, 3, 4, 1, 1, 5};
     int t41b = 2;
     IO.println("4.1 Первое вхождение. arr = " + arrToString(t41a) + ", x = " + t41b);
     IO.println("Ответ: " + findFirst(t41a, t41b));

@@ -7,7 +7,7 @@ public double fraction (double x) {
 }
 
 public boolean isPositive (int x) {
-    return x >= 0;
+    return x > 0;
 }
 
 public boolean is2Digits (int x) {
@@ -15,7 +15,7 @@ public boolean is2Digits (int x) {
 }
 
 public boolean isDivisor (int a, int b){
-    return a % b == 0 || b % a == 0;
+    return (b != 0 && a % b == 0) || (a != 0 && b % a == 0);
 }
 
 public boolean isEqual(int a, int b, int c){
@@ -47,9 +47,9 @@ public int sum2 (int x, int y){
 }
 
 public String age (int x){
-    if (x % 10 == 1 && x != 11){
+    if (x % 10 == 1 && x % 100 != 11){
         return x + " год";
-    } else if ((x % 10 == 2 || x % 10 == 3 || x % 10 == 4) && (x != 12 && x != 13 && x != 14)) {
+    } else if ((x % 10 == 2 || x % 10 == 3 || x % 10 == 4) && (x % 100 != 12 && x % 100 != 13 && x % 100 != 14)) {
         return x + " года";
     } else return x + " лет";
 }
@@ -77,9 +77,9 @@ public void printDays(String x) {
 }
 
 public String reverseListNums (int x){
-    String st = x + " ";
+    String st = x + "";
     for (int i = x-1; i >= 0; i--){
-        st += i + " ";
+        st += " " + i;
     }
     return st;
 }
@@ -120,19 +120,26 @@ public void guessGame() {
     Scanner sc = new Scanner(System.in);
     int num = (int)(Math.random() * 10);
     int count = 0;
+    int answer = -1;
 
     IO.print("Угадайте число от 0 до 9: ");
-    int answer = sc.nextInt();
-    count++;
-
     while (answer != num) {
-        if (answer < num) {
-            IO.print("Не угадали, загаданное число больше. Введите число от 0 до 9: ");
-        } else {
-            IO.print("Не угадали, загаданное число меньше. Введите число от 0 до 9: ");
+        if (!sc.hasNextInt()) {
+            sc.next();
+            IO.print("Это не число. Введите число от 0 до 9: ");
+            continue;
         }
         answer = sc.nextInt();
+        if (answer < 0 || answer > 9) {
+            IO.print("Число должно быть от 0 до 9. Введите число от 0 до 9: ");
+            continue;
+        }
         count++;
+        if (answer < num) {
+            IO.print("Не угадали, загаданное число больше. Введите число от 0 до 9: ");
+        } else if (answer > num) {
+            IO.print("Не угадали, загаданное число меньше. Введите число от 0 до 9: ");
+        }
     }
 
     IO.println("Вы угадали!");
@@ -186,7 +193,7 @@ public int[] concat (int[] arr1, int[] arr2) {
 }
 
 // функция для вывода массивов
-public String arrToString (int[] arr) {
+private String arrToString (int[] arr) {
     String st = "[";
     for (int i = 0; i < arr.length; i++) {
         st += arr[i];
